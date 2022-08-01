@@ -20,7 +20,7 @@ export default function LoggedIn() {
     event.preventDefault();
 
     const token = await loginUser(username, password);
-    localStorage.setItem("token", token);
+    localStorage.setItem("token",token);
 
     navigate("/Profile");
   };
@@ -48,7 +48,7 @@ export default function LoggedIn() {
                     placeholder="Username"
                     value={username}
                     onChange={handleOnChange}
-                    minLength="6"
+                    
                   ></input>
                 </div>
                 <div className="form-outline mb-4">
@@ -57,7 +57,7 @@ export default function LoggedIn() {
                     id="form2Example2"
                     className="form-control"
                     placeholder="Password"
-                    minLength="6"
+                    
                     onChange={handleOnChange}
                   ></input>
                 </div>

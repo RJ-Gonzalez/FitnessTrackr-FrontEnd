@@ -8,13 +8,12 @@ export default function Register(){
     let navigate = useNavigate();
     const [newUsername, setnewUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [confimPassword, setConfirmPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
   
     async function handleSubmit(event) {
       event.preventDefault();
-  
-      const token = await createUser(newUsername, password);
-      localStorage.setItem("token", token);
+      const result = await createUser(newUsername, password);
+      localStorage.setItem("token",result.data.token);
       navigate("/Login");
     }
     return (
@@ -36,8 +35,7 @@ export default function Register(){
                             className="form-control"
                             placeholder="Choose Your New Username"
                             type="text"
-                            minLength="6"
-                            required
+                            
                             onChange={(event) => setnewUsername(event.target.value)}
                           ></input>
                         </div>
@@ -51,8 +49,8 @@ export default function Register(){
                             className="form-control"
                             placeholder="Choose Your New Password"
                             type="password"
-                            required
-                            minLength="6"
+                            
+                            
                             onChange={(event) => setPassword(event.target.value)}
                           ></input>
                         </div>
@@ -66,8 +64,8 @@ export default function Register(){
                             className="form-control"
                             placeholder="Confirm Password"
                             type="password"
-                            minLength="6"
-                            required
+                            
+                            
                             onChange={(event) =>
                               setConfirmPassword(event.target.value)
                             }
