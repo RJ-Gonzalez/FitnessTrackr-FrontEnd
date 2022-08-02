@@ -47,14 +47,15 @@ export async function createUser (username, password){
 
   export async function getAllPublicRoutines() {
     try {
-      const response = await fetch(`${BASE_URL}/routines`)
-        // headers: {
-        //   'Content-Type': 'application/json',
-        // }
-      // });
-      console.log(response)
+      const response = await fetch(`${BASE_URL}/routines`,{
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      console.log(response, "this is response!!!")
       const result = await response.json();
-      console.log(result);
+      console.log(result, "this is result!!")
+      // displayRoutines(result)
       return result;
     } catch (error) {
       console.log(error);
