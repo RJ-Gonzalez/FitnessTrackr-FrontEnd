@@ -91,9 +91,28 @@ export async function createUser (username, password){
       console.log(response, "this is response!!!")
       const result = await response.json();
       console.log(result, "this is result!!")
-      // displayRoutines(result)
       return result;
     } catch (error) {
       console.log(error);
     }
   }
+
+  export async function getAllRoutinesByUser(token) {
+    try{
+      const response = await fetch(`${BASE_URL}/users/me`,{
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    console.log(response, "this is response!!!")
+    const result = await response.json();
+    console.log(result, "this is result!!")
+    const data = result.data;
+  return data;
+    // return result;
+  } catch (error) {
+    console.log(error);
+  }
+    }
+  

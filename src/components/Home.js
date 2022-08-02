@@ -31,6 +31,8 @@ export default function Home () {
             <Link to="/AllRoutines" className="text-white">Routines</Link>
             <span className="text-white"> | </span>
             <Link to="/AllActivities" className="text-white">Activities</Link>
+            <span className="text-white"> | </span>
+            <Link to="/MyRoutines" className="text-white">My Routines</Link>
           </h4>
           </div>
       </div>

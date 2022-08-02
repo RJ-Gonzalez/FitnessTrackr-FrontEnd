@@ -22,7 +22,7 @@ export default function LoggedIn() {
     const token = await loginUser(username, password);
     localStorage.setItem("token",token);
 
-    navigate("/Profile");
+    navigate("/MyRoutines");
   };
 
   return (
