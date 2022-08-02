@@ -28,9 +28,9 @@ export default function Home () {
             <span className="text-white"> | </span>
             <Link to="/Register" className="text-white">Register</Link>
             <span className="text-white"> | </span>
-            <Link to="/Register" className="text-white">Routines</Link>
+            <Link to="/AllRoutines" className="text-white">Routines</Link>
             <span className="text-white"> | </span>
-            <Link to="/Register" className="text-white">Activities</Link>
+            <Link to="/AllActivities" className="text-white">Activities</Link>
           </h4>
           </div>
       </div>

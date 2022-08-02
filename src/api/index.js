@@ -61,4 +61,39 @@ export async function createUser (username, password){
       console.log(error);
     }
   }
+
+  export async function getAllActivities() {
+    try {
+      const response = await fetch(`${BASE_URL}/activities`,{
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      console.log(response, "this is response!!!")
+      const result = await response.json();
+      console.log(result, "this is result!!")
+      // displayRoutines(result)
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
+
+
+  export async function getActivityById() {
+    try {
+      const response = await fetch(`${BASE_URL}/activities/id/routines`,{
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      console.log(response, "this is response!!!")
+      const result = await response.json();
+      console.log(result, "this is result!!")
+      // displayRoutines(result)
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  }

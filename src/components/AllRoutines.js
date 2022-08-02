@@ -1,45 +1,42 @@
-import React,{ useEffect, useState} from "react";
-import {getAllPublicRoutines} from "../api";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { getAllPublicRoutines,getActivityById } from "../api";
+// import { useNavigate } from "react-router-dom";
+
+export default function AllRoutines({ routines, setRoutines}) {
+//   const navigate = useNavigate();
+useEffect(() => {
+    getAllPublicRoutines().then((result) => {
+      setRoutines(result);
+    });
+  }, []);
+  const routineMapping = routines.map((routine, index) => {
+    return (
+      <div key={index}>
+     
+        <h5>Username:{routine.creatorName}</h5>
+        <h5>Goal:{routine.goal}</h5>
+        <h5>Name of routine:{routine.name}</h5>
+      </div>
+      
+    );
+  });
+
+//   const activityMapping = routine.activities.map((activity, index) => {
+//     return (
+//       <div key={index}>
+//         <h3>Name of Activity:{activity.name}</h3>
+//         <h5>Description:{activity.description}</h5>
+//         <h5>Duration:{activity.duration}</h5>
+//       </div>
+//     );
+//   });
 
 
-
-
-export default function AllRoutines(){
-    const navigate = useNavigate();
-    const [routines,setRoutines] = useState([])
-    // const authToken = localstorage.getItem("token")? true:false;
-    useEffect(() => {
-        getAllPublicRoutines()
-          .then((response) => {
-            const routines = response.data.routines;
-            setRoutines(routines);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }, []);
-    //   const routineMapping = routines.map((routine) => {
-    //     let routineId = routine.id;
-    //     return(
-    //         <div key = {routineId}>
-             
-    //         </div>
-    //     )
-    
-
-  
-    // })    
-
-
-    return(
+  return (
     <div>
-         <h1>This is all routines</h1>
-         <h5>{routines.creatorName}</h5>
-                <h5>{routines.goal}</h5>
-                <h5>{routines.name}</h5>
-         </div>
-        )
-
-    }
-
+      <h1>This is all routines</h1>
+      {routineMapping}
+      
+    </div>
+  );
+}
