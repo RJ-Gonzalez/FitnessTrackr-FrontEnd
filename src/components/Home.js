@@ -22,6 +22,8 @@ export default function Home () {
         <div className="container-fluid">
    {/* <div  className="text-white"><h1>Welcome to Fitness Trackr</h1></div> */}
           <h4 className="mb-0">
+          <Link to="/Home" className="text-white">Home</Link>
+            <span className="text-white"> | </span>
             <Link to="/Login" className="text-white">Login</Link>
             <span className="text-white"> | </span>
             <Link to="/Register" className="text-white">Register</Link>
@@ -32,14 +34,7 @@ export default function Home () {
           </h4>
           </div>
       </div>
-
-
         <img src = "https://www.31fss.com/templates/yootheme/cache/Fitness-Centers-HERO-ed9cae28.jpeg"/>
-
-
-
-
-
       <footer className="bg-dark text-center text-white">
         <div className="container p-4 pb-0">
           <section className="mb-4">

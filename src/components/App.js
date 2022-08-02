@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import {Register, Login, Home} from "./";
+import {Register, Login, Home,AllRoutines} from "./";
 
 
 
@@ -8,11 +8,12 @@ const App = () =>{
     return(
         
     <div>
-        <h6>Just here for App reference</h6>
+       <Home/>
     <Routes>
         <Route exact path = "/Register" element={<Register />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
         <Route exact path="/Home" element={<Home />}></Route>
+        <Route exact path="/AllRoutines" element={<AllRoutines />}></Route>
     </Routes>
     </div>
     )

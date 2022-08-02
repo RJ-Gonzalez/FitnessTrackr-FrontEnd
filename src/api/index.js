@@ -43,4 +43,21 @@ export async function createUser (username, password){
     throw error;
     }
   }
+
+
+  export async function getAllPublicRoutines() {
+    try {
+      const response = await fetch(`${BASE_URL}/routines`)
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // }
+      // });
+      console.log(response)
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  }
   
