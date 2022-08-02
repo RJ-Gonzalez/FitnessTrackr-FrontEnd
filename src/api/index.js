@@ -1,3 +1,5 @@
+import { AllActivities } from "../components";
+
 export const BASE_URL = `https://fitnesstrac-kr.herokuapp.com/api`;
 
 export async function createUser (username, password){
@@ -116,3 +118,56 @@ export async function createUser (username, password){
   }
     }
   
+export async function userRoutines(token, user){
+  try{
+    const response = await fetch(`${BASE_URL}/users/${user}/routines`,{
+      headers:{
+        'Content-Type' : 'application/json',
+        'Authorization' : `Bearer ${token}`
+      }
+    })
+    const result = response.json()
+    return result
+  }catch(error){
+
+  }
+}  
+
+export async function createRoutine(routine, token){
+  const response = await fetch(`${BASE_URL}$/routines`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({
+     name: routine.name,
+     goal: routine.goal,
+     isPublic: true
+    })
+  }) .then((response => response.json()))
+  .then(result => {
+    console.log(result)
+  })
+  .catch(console.error)
+}
+
+export async function createActivity(activity, token){
+  const response = await fetch(`${BASE_URL}$/activities`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      name: activity.name,
+      description: activity.description
+    })
+  }) .then((response => response.json()))
+  .then(result => {
+    console.log(result)
+  })
+  .catch(console.error)
+}

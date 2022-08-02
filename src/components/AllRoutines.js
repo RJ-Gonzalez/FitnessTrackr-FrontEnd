@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getAllPublicRoutines,getActivityById } from "../api";
 // import { useNavigate } from "react-router-dom";
 
+import "./style.css";
+
 export default function AllRoutines({ routines, setRoutines}) {
 //   const navigate = useNavigate();
 useEffect(() => {
@@ -43,24 +45,38 @@ useEffect(() => {
 
   return (
     <div>
+      <h2>Routines and Activities</h2>
+      <div id = "container">
         {routines.map((routine, index) => {
     return (
+      <div id = "routinesContainer">
       <div key={index}>
-        <h3>Username:{routine.creatorName}</h3>
+        
+        <h3>Posted By: {routine.creatorName.toUpperCase()}</h3>
         <h5>Goal:{routine.goal}</h5>
-        <h5>Name of routine:{routine.name}</h5>
+        <h5>Routine: {routine.name}</h5>      
+
+
+     
      {routine.activities.map((activity, index) => {
     return (
       <div key={index}>
-        <h5>Name of Activity:{activity.name}</h5>
-        <h5>Description:{activity.description}</h5>
+        <h5>Activity{activity.name}</h5>
         <h5>Duration:{activity.duration}</h5>
+        <h5>Description:{activity.description}</h5>
       </div>
     )
-    })};
+    })}
+
+    </div>
     </div>
     )})}
     </div>
+       </div>    
 
   )
 }
+
+
+
+

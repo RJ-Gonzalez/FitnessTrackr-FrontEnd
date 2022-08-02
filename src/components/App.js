@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import {Register, Login, Home, AllRoutines, AllActivities,MyRoutines} from "./";
+import {Register, Login, Home, AllRoutines, AllActivities,MyRoutines, NavBar, CreateRoutines} from "./";
 
 
 
@@ -12,6 +12,7 @@ const App = () =>{
         
     <div>
        {/* <Home/> */}
+       <NavBar/>
     <Routes>
         
         <Route exact path = "/Register" element={<Register />}></Route>
@@ -20,6 +21,8 @@ const App = () =>{
         <Route exact path="/AllRoutines" element={<AllRoutines routines={routines} setRoutines={setRoutines}/>}></Route>
         <Route exact path="/AllActivities" element={<AllActivities activities={activities} setActivities={setActivities}/>}></Route>
         <Route exact path="/MyRoutines" element={<MyRoutines myRoutine={myRoutine} setMyRoutine={setMyRoutine} />}></Route>
+        <Route exact path="/CreateRoutines" element={<CreateRoutines />}></Route>
+        
     </Routes>
     </div>
     )

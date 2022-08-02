@@ -7,3 +7,18 @@ img{
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+  #routinesContainer{
+    height: 200px;
+    width: 700px;
+    /* align-content: center; */
+    border: 1px solid black;
+    overflow: scroll;
+    margin: auto;
+  }
+
+  #container{
+    overflow: scroll;
+    /* border: 5px solid red; */
+    height: 650px;
+  }
