@@ -7,7 +7,7 @@ import {Register, Login, Home, AllRoutines, AllActivities,MyRoutines, NavBar, Cr
 const App = () =>{
     const [routines,setRoutines] = useState([]);
     const [activities, setActivities] = useState([]);
-    const [myRoutine, setMyRoutine] = useState('');
+    const [myRoutine, setMyRoutine] = useState([]);
     const [myInfo, setMyInfo] = useState({});
     return(
         

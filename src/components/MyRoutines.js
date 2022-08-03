@@ -1,16 +1,15 @@
 import React,{useEffect,useState} from 'react';
-import { createRoutine, connectProfile} from "../api"
+import { createRoutine, connectProfile, userRoutines} from "../api"
 import { Link } from "react-router-dom";
 import { NavBar } from ".";
 
 
 
 const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
-  let token = "";
-  let tokens = "";
+   
 
   useEffect(() => {
-    token = localStorage.getItem("token");
+   const token = localStorage.getItem("token");
     async function getMyInfo() {
       const response = await connectProfile(token);
       console.log(response, "this is respone from My ROUTINES!!!!")
@@ -20,16 +19,18 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
     getMyInfo();
   }, []);
 
-//   useEffect(() => {
-//     tokens = localStorage.getItem("tokens");
-//     async function getMyRoutines() {
-//       const response = await  createRoutine(tokens);
-//       console.log(response, "this is respone from My ROUTINES!!!!")
-//       setMyRoutine(response);
+  useEffect(() => {
+   const token = localStorage.getItem("token");
+   console.log(token)
+   const username = localStorage.getItem("username");
+    async function getMyRoutines() {
+      const response = await  userRoutines(token,username);
+      console.log(response, "this is respone from My ROUTINES!!!!")
+      setMyRoutine(response);
       
-//     }
-//     getMyRoutines();
-//   }, []);
+    }
+    getMyRoutines();
+  }, []);
 
 
   
@@ -39,19 +40,18 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
             <div>
                  <NavBar/>
             </div>
-           
         <h3 className="welcome">Welcome {myInfo.username}</h3>
-        {/* <div>
+        <div>
         {myRoutine.map((element, index) => {
-        let myId = element[index].id
+            console.log(element)
         return (
-          <div key={myId}>
+          <div key={`myRoutines${index}`}>
             <div className="card" style={{ width: 700 }}>
               <div className="card-body">
                 <div id="inboxMessage">
-                  <h4>From: {element.username}</h4>
+                  <h4>From: {element.creatorName}</h4>
                   <h4>Name of routine: {element.name}</h4>
-                  <h4>Description: {element.description}</h4>
+                  <h4>Description: {element.goal}</h4>
                 </div>
               </div>
             </div>
@@ -59,8 +59,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
         );
         }
     )};
-        </div> */}
-       
+        </div>
         <Link to="/CreateRoutines">
         <button id="allButton" type="button" className="btn btn-dark">
           Create New Post
