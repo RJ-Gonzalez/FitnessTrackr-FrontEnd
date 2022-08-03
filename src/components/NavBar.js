@@ -10,7 +10,7 @@ export default function Home () {
         <div>
         <div className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="container-fluid">
-   <div  className="text-white"><h1>Fitness Trackr</h1></div>
+        <div  className="text-white"><h1>Fitness Trackr</h1></div>
           <h4 className="mb-0">
           <Link to="/Home" className="text-white">Home</Link>
             <span className="text-white"> | </span>
@@ -25,6 +25,9 @@ export default function Home () {
             <Link to="/MyRoutines" className="text-white">My Routines</Link>
           </h4>
           </div>
+      </div>
+      <div>
+        <img className= "picture" src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHNwb3J0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" />
       </div>
       </div>
         

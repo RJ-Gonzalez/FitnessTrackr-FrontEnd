@@ -1,4 +1,4 @@
-img{
+.img{
     width: 100%;
 }
 .centered {
@@ -21,4 +21,8 @@ img{
     overflow: scroll;
     /* border: 5px solid red; */
     height: 650px;
+  }
+
+  .picture{
+   width: 100%;
   }

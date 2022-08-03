@@ -21,7 +21,7 @@ export default function Home () {
         {/* <nav className="d-flex"> */}
 
       </div>
-        <img src = "https://www.31fss.com/templates/yootheme/cache/Fitness-Centers-HERO-ed9cae28.jpeg"/>
+        <img className="img" src = "https://www.31fss.com/templates/yootheme/cache/Fitness-Centers-HERO-ed9cae28.jpeg"/>
       <footer className="bg-dark text-center text-white">
         <div className="container p-4 pb-0">
           <section className="mb-4">
