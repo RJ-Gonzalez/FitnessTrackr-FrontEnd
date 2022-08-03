@@ -183,6 +183,21 @@ export async function createMyActivity( token, name, description){
 ).catch(console.error)
 }
 
+export async function createRoutineActivity(routineId, activityId, count, duration){
+  try{
+    const response = await fetch(`${BASE_URL}/activities/${routineId}/activities`,{
+      method: "POST",
+      body: JSON.stringify({
+        activityId: activityId,
+        count: count,
+        duration: duration
+        })
+  })
+  }catch(error){
+    console.log(error)
+  }
+}
+
 
 export async function userActivity(token,activityId){
   try{

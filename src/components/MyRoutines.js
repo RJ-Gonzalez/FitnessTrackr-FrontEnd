@@ -31,16 +31,12 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
     }
     getMyRoutines();
   }, []);
-
-
-  
-  
     return(
         <div>
             <div>
                  <NavBar/>
             </div>
-        <h3 className="welcome">Welcome {myInfo.username}</h3>
+        <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
         <div>
         {myRoutine.map((element, index) => {
             console.log(element)
@@ -49,9 +45,9 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
             <div className="card" style={{ width: 700 }}>
               <div className="card-body">
                 <div id="inboxMessage">
-                  <h4>From: {element.username}</h4>
-                  <h4>Name of routine: {element.name}</h4>
-                  <h4>Description: {element.description}</h4>
+                  <h4>Creator: {element.creatorName}</h4>
+                  <h4>Routine: {element.name}</h4>
+                  <h4>Goal: {element.goal}</h4>
                 </div>
               </div>
             </div>
