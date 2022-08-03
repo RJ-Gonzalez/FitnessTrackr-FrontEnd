@@ -115,6 +115,7 @@ export async function userRoutines(username){
     const response = await fetch(`${BASE_URL}/users/${username}/routines`,{
       headers:{
         'Content-Type' : 'application/json',
+        // 'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
         username: username
@@ -124,13 +125,12 @@ export async function userRoutines(username){
     const result = response.json()
     return result
   }catch(error){
-
+    console.log(error);
   }
 }  
 
 export async function createRoutine(token, name, goal){
-  const response = await fetch(`${BASE_URL}/routines`,
-  {
+  const response = await fetch(`${BASE_URL}/routines`,{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -143,8 +143,24 @@ export async function createRoutine(token, name, goal){
     })
   }) .then((response => response.json()))
   .then(result => {
-    console.log(result)
-  })
-  .catch(console.error)
+    console.log(result) 
+}
+).catch(console.error)
 }
 
+
+export async function deleteRoutine(token){
+  try{
+      const response = await fetch(`${BASE_URL}/routines/:routineId`, {
+          method: "DELETE",
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+          }
+      })
+      const result = await response.json();
+      return result;
+  }catch (error){
+      console.error("Isssue deleting Posts", error)
+  }
+}
