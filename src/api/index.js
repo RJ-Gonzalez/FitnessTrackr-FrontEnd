@@ -58,22 +58,6 @@ export async function createUser (username, password){
     return result;
   }
 
-  export async function getUser(authToken){
-    try{
-      const userData ={
-        'Content-Type': 'application/json',
-        'Authorization' : `Bearer ${authToken}`
-      }
-      const response = await fetch(`${BASE_URL}/users/me`,{
-        headers: userData
-      })
-      const result = await response.json()
-      return result 
-    } catch (error){
-      throw error;
-    }
-  }
-
   export async function getAllPublicRoutines() {
     try {
       const response = await fetch(`${BASE_URL}/routines`,{
@@ -126,33 +110,17 @@ export async function createUser (username, password){
     }
   }
 
-  export async function getAllRoutinesByUser(token) {
-    try{
-      const response = await fetch(`${BASE_URL}/users/me`,{
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
-    });
-    console.log(response, "this is response!!!")
-    const result = await response.json();
-    console.log(result, "this is result!!")
-    const data = result.data;
-  return data;
-    // return result;
-  } catch (error) {
-    console.log(error);
-  }
-    }
-  
-export async function userRoutines(token, user){
+export async function userRoutines(username){
   try{
-    const response = await fetch(`${BASE_URL}/users/${user}/routines`,{
+    const response = await fetch(`${BASE_URL}/users/${username}/routines`,{
       headers:{
         'Content-Type' : 'application/json',
-        'Authorization' : `Bearer ${token}`
-      }
-    })
+      },
+      body: JSON.stringify({
+        username: username
+      })
+  }
+    )
     const result = response.json()
     return result
   }catch(error){

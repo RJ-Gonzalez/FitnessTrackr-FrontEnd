@@ -8,6 +8,7 @@ const App = () =>{
     const [routines,setRoutines] = useState([]);
     const [activities, setActivities] = useState([]);
     const [myRoutine, setMyRoutine] = useState('');
+    const [myInfo, setMyInfo] = useState({});
     return(
         
     <div>
@@ -20,7 +21,7 @@ const App = () =>{
         <Route exact path="/Home" element={<Home />}></Route>
         <Route exact path="/AllRoutines" element={<AllRoutines routines={routines} setRoutines={setRoutines}/>}></Route>
         <Route exact path="/AllActivities" element={<AllActivities activities={activities} setActivities={setActivities}/>}></Route>
-        <Route exact path="/MyRoutines" element={<MyRoutines myRoutine={myRoutine} setMyRoutine={setMyRoutine} />}></Route>
+        <Route exact path="/MyRoutines" element={<MyRoutines myRoutine={myRoutine} setMyRoutine={setMyRoutine} myInfo ={myInfo} setMyInfo ={setMyInfo} />}></Route>
         <Route exact path="/CreateRoutines" element={<CreateRoutines />}></Route>
         
     </Routes>
