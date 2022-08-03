@@ -21,7 +21,7 @@ export default function  DeleteRoutine ({routineId}){
         type="button"
         id="deletePostButton"
         className="btn btn-dark">
-        Delete Post
+        Delete Routine
       </button>
     )
 }

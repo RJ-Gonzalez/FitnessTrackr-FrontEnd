@@ -118,9 +118,6 @@ export async function createUser (username, password){
           'Content-Type' : 'application/json',
           'Authorization': `Bearer ${token}`
         }
-        // body: JSON.stringify({
-        //   username: username
-        // })
     }
       )
       const result = response.json()
@@ -166,3 +163,41 @@ export async function deleteRoutine(token, routineId){
       console.error("Isssue deleting Posts", error)
   }
 }
+
+export async function createMyActivity( token, name, description){
+  const response = await fetch(`${BASE_URL}/activities`,{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+     name: name,
+     description: description
+    })
+  }) .then((response => response.json()))
+  // console.log(response,"This is create ACTIVITY")
+  .then(result => {
+    console.log(result) 
+}
+).catch(console.error)
+}
+
+
+export async function userActivity(token,activityId){
+  try{
+    console.log(token)
+    const response = await fetch(`${BASE_URL}/activities/${activityId}/routine`,{
+      headers:{
+        'Content-Type' : 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+  }
+    )
+    const result = response.json()
+    console.log(result)
+    return result
+  }catch(error){
+    console.log(error);
+  }
+} 

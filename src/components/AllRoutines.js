@@ -24,9 +24,10 @@ export default function AllRoutines({ routines, setRoutines }) {
             <div id="routinesContainer">
               <div key={index}>
                 <h3>Posted By: {routine.creatorName.toUpperCase()}</h3>
+                <DeleteRoutine routineId = {routine.id}/>
                 <h5>Goal:{routine.goal}</h5>
                 <h5>Routine: {routine.name}</h5>
-                <DeleteRoutine routineId = {routine.id}/>
+               
                 {routine.activities.map((activity, indx) => {
                   return (
                     <div key={indx}>

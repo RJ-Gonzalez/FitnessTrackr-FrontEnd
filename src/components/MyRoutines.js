@@ -49,9 +49,9 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
             <div className="card" style={{ width: 700 }}>
               <div className="card-body">
                 <div id="inboxMessage">
-                  <h4>From: {element.creatorName}</h4>
+                  <h4>From: {element.username}</h4>
                   <h4>Name of routine: {element.name}</h4>
-                  <h4>Description: {element.goal}</h4>
+                  <h4>Description: {element.description}</h4>
                 </div>
               </div>
             </div>
@@ -62,9 +62,17 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
         </div>
         <Link to="/CreateRoutines">
         <button id="allButton" type="button" className="btn btn-dark">
-          Create New Post
+          Create New Routine!
         </button>
       </Link>
+
+      <Link to="/CreateActivity">
+        <button id="allButton" type="button" className="btn btn-dark">
+          Create New Activity!
+        </button>
+      </Link>
+
+
             <Link to="/">
         <button
           id="allButton"
