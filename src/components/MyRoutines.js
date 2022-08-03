@@ -43,6 +43,7 @@ const MyRoutines = ({myRoutine, setMyRoutine, myInfo, setMyInfo}) => {
     return(
         <div>
         <h3 className="welcome">Welcome {myInfo.username}</h3>
+        {myInfo}
         <Link to="/CreateRoutines">
         <button id="allButton" type="button" className="btn btn-dark">
           Create New Post
