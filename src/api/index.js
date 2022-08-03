@@ -39,13 +39,40 @@ export async function createUser (username, password){
     }
     )
     const result = await response.json()
-    console.log(result)
-    return result
+    const token = result.token
+    console.log(token)
+    return token
   }catch(error){
     throw error;
     }
   }
 
+  export async function connectProfile(token) {
+    const response = await fetch(`${BASE_URL}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  }
+
+  export async function getUser(authToken){
+    try{
+      const userData ={
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${authToken}`
+      }
+      const response = await fetch(`${BASE_URL}/users/me`,{
+        headers: userData
+      })
+      const result = await response.json()
+      return result 
+    } catch (error){
+      throw error;
+    }
+  }
 
   export async function getAllPublicRoutines() {
     try {
@@ -133,8 +160,8 @@ export async function userRoutines(token, user){
   }
 }  
 
-export async function createRoutine(routine, token){
-  const response = await fetch(`${BASE_URL}$/routines`,
+export async function createRoutine(token, name, goal){
+  const response = await fetch(`${BASE_URL}/routines`,
   {
     method: "POST",
     headers: {
@@ -142,8 +169,8 @@ export async function createRoutine(routine, token){
       "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify({
-     name: routine.name,
-     goal: routine.goal,
+     name: name,
+     goal: goal,
      isPublic: true
     })
   }) .then((response => response.json()))
@@ -153,21 +180,3 @@ export async function createRoutine(routine, token){
   .catch(console.error)
 }
 
-export async function createActivity(activity, token){
-  const response = await fetch(`${BASE_URL}$/activities`,
-  {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
-    body: JSON.stringify({
-      name: activity.name,
-      description: activity.description
-    })
-  }) .then((response => response.json()))
-  .then(result => {
-    console.log(result)
-  })
-  .catch(console.error)
-}

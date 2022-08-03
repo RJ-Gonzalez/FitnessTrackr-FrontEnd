@@ -19,7 +19,7 @@ export default function Home () {
         <div>
         <div className="navbar navbar-expand-lg navbar-light bg-dark">
         {/* <nav className="d-flex"> */}
- 
+
       </div>
         <img src = "https://www.31fss.com/templates/yootheme/cache/Fitness-Centers-HERO-ed9cae28.jpeg"/>
       <footer className="bg-dark text-center text-white">

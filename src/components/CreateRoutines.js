@@ -8,21 +8,16 @@ export default function createNewRoutine(){
 
     const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
-    const [isPublic, setIsPublic] = useState(false)
+    // const [isPublic, setIsPublic] = useState(false)
     
   const authToken = localStorage.getItem("token") ? true : false;
 
   async function handleSubmit(event){
     event.preventDefault();
-
-    const routine = {
-        name: name,
-        goal: goal,
-        isPublic: isPublic
-    }
     const token = localStorage.getItem("token");
-
-    const response = await createRoutine(routine, token);
+    alert("New Routine Created")
+    const response = await createRoutine(token, name, goal);
+    console.log(response, "this is response from CreateRoutines HandleSubmit")
     navigate("/AllRoutines")
     return response;
   }
@@ -58,13 +53,13 @@ export default function createNewRoutine(){
                         onChange={(event) => setGoal(event.target.value)}
                         placeholder="description"
                       ></input>
-                      <input
+                      {/* <input
                         id="form2Example1"
                         className="form-control"
                         type="text"
                         onChange={(event) => setIsPublic(event.target.value)}
                         placeholder="location"
-                      ></input>
+                      ></input> */}
                       <button className="btn btn-dark" id="newPostButton">
                         Submit New Routine
                       </button>

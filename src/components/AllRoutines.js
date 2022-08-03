@@ -58,9 +58,9 @@ useEffect(() => {
 
 
      
-     {routine.activities.map((activity, index) => {
+     {routine.activities.map((activity, indx) => {
     return (
-      <div key={index}>
+      <div key={indx}>
         <h5>Activity{activity.name}</h5>
         <h5>Duration:{activity.duration}</h5>
         <h5>Description:{activity.description}</h5>
