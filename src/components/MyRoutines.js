@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {userRoutines, connectProfile} from "../api"
 import { Link } from "react-router-dom";
+import { NavBar } from ".";
 
 
 
@@ -42,14 +43,18 @@ const MyRoutines = ({myRoutine, setMyRoutine, myInfo, setMyInfo}) => {
     );
     return(
         <div>
+            <div>
+                 <NavBar/>
+            </div>
+           
         <h3 className="welcome">Welcome {myInfo.username}</h3>
-        {myInfo}
+        {/* {myInfo} */}
         <Link to="/CreateRoutines">
         <button id="allButton" type="button" className="btn btn-dark">
           Create New Post
         </button>
       </Link>
-            <Link to="/Logout">
+            <Link to="/">
         <button
           id="allButton"
           type="button"

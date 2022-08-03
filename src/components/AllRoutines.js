@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavBar } from ".";
 import { getAllPublicRoutines,getActivityById } from "../api";
 // import { useNavigate } from "react-router-dom";
 
@@ -15,6 +16,7 @@ useEffect(() => {
 
   return (
     <div>
+        <NavBar/>
       <h2>Routines and Activities</h2>
       <div id = "container">
         {routines.map((routine, index) => {

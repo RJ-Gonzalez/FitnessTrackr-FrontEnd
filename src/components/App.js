@@ -13,12 +13,11 @@ const App = () =>{
         
     <div>
        {/* <Home/> */}
-       <NavBar/>
     <Routes>
         
         <Route exact path = "/Register" element={<Register />}></Route>
         <Route exact path="/Login" element={<Login />}></Route>
-        <Route exact path="/Home" element={<Home />}></Route>
+        <Route exact path="/" element={<Home />}></Route>
         <Route exact path="/AllRoutines" element={<AllRoutines routines={routines} setRoutines={setRoutines}/>}></Route>
         <Route exact path="/AllActivities" element={<AllActivities activities={activities} setActivities={setActivities}/>}></Route>
         <Route exact path="/MyRoutines" element={<MyRoutines myRoutine={myRoutine} setMyRoutine={setMyRoutine} myInfo ={myInfo} setMyInfo ={setMyInfo} />}></Route>
