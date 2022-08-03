@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavBar } from ".";
-import { getAllPublicRoutines, getActivityById, deleteRoutine } from "../api";
+import { getAllPublicRoutines } from "../api";
 import { useNavigate } from "react-router-dom";
+import DeleteRoutine from "./DeleteRoutine";
 
 import "./style.css";
 
@@ -12,13 +13,6 @@ export default function AllRoutines({ routines, setRoutines }) {
       setRoutines(result);
     });
   }, []);
-
-  async function deleteMyRoutine(routineId) {
-    const tokens = localStorage.getItem("token");
-    const erase = await deleteRoutine(tokens, routineId);
-    navigate("/MyRoutines");
-    return erase;
-  }
 
   return (
     <div>
@@ -32,26 +26,17 @@ export default function AllRoutines({ routines, setRoutines }) {
                 <h3>Posted By: {routine.creatorName.toUpperCase()}</h3>
                 <h5>Goal:{routine.goal}</h5>
                 <h5>Routine: {routine.name}</h5>
-
+                <DeleteRoutine routineId = {routine.id}/>
                 {routine.activities.map((activity, indx) => {
                   return (
                     <div key={indx}>
                       <h5>Activity{activity.name}</h5>
                       <h5>Duration:{activity.duration}</h5>
                       <h5>Description:{activity.description}</h5>
+
                     </div>
                   );
                 })}
-                <button
-                  onClick={() => {
-                    deleteMyRoutine(routine.username);
-                  }}
-                  type="button"
-                  id="deletePostButton"
-                  className="btn btn-dark"
-                >
-                  Delete Post
-                </button>
               </div>
             </div>
           );

@@ -149,9 +149,9 @@ export async function createRoutine(token, name, goal){
 }
 
 
-export async function deleteRoutine(token){
+export async function deleteRoutine(token, routineId){
   try{
-      const response = await fetch(`${BASE_URL}/routines/:routineId`, {
+      const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
           method: "DELETE",
           headers: {
               'Content-Type': 'application/json',
