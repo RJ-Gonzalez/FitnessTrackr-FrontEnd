@@ -53,13 +53,6 @@ export default function createNewRoutine(){
                         onChange={(event) => setGoal(event.target.value)}
                         placeholder="description"
                       ></input>
-                      {/* <input
-                        id="form2Example1"
-                        className="form-control"
-                        type="text"
-                        onChange={(event) => setIsPublic(event.target.value)}
-                        placeholder="location"
-                      ></input> */}
                       <button className="btn btn-dark" id="newPostButton">
                         Submit New Routine
                       </button>

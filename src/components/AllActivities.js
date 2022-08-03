@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
 import { getAllActivities} from "../api";
+import { NavBar } from ".";
 
 const AllActivities = ({activities, setActivities}) => {
 
@@ -20,7 +21,7 @@ const AllActivities = ({activities, setActivities}) => {
       });
     return(
 <div>
-   <h1>Hello</h1> 
+<NavBar/>
    {activityMapping}
 </div>
     )

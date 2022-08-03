@@ -1,11 +1,13 @@
 import React,{useEffect,useState} from 'react';
-import {userRoutines, connectProfile} from "../api"
+import { createRoutine, connectProfile} from "../api"
 import { Link } from "react-router-dom";
+import { NavBar } from ".";
 
 
 
-const MyRoutines = ({myRoutine, setMyRoutine, myInfo, setMyInfo}) => {
+const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
   let token = "";
+  let tokens = "";
 
   useEffect(() => {
     token = localStorage.getItem("token");
@@ -18,38 +20,53 @@ const MyRoutines = ({myRoutine, setMyRoutine, myInfo, setMyInfo}) => {
     getMyInfo();
   }, []);
 
-//working on mapping through username routines.
-  console.log(myRoutine, "this is myInfo!!!")
-  const myRoutineMapping =
-    myRoutine.creatorName && myInfo.creatorName.name && myInfo.creatorName.name.length ? (
-      myInfo.creatorName.name.map((element, index) => {
+//   useEffect(() => {
+//     tokens = localStorage.getItem("tokens");
+//     async function getMyRoutines() {
+//       const response = await  createRoutine(tokens);
+//       console.log(response, "this is respone from My ROUTINES!!!!")
+//       setMyRoutine(response);
+      
+//     }
+//     getMyRoutines();
+//   }, []);
+
+
+  
+  
+    return(
+        <div>
+            <div>
+                 <NavBar/>
+            </div>
+           
+        <h3 className="welcome">Welcome {myInfo.username}</h3>
+        {/* <div>
+        {myRoutine.map((element, index) => {
+        let myId = element[index].id
         return (
-          <div key={`Profile${index}`}>
+          <div key={myId}>
             <div className="card" style={{ width: 700 }}>
               <div className="card-body">
                 <div id="inboxMessage">
-                  <h4>From: {element.fromUser.username}</h4>
-                  <h4>Response to Post: {element.post.title}</h4>
-                  <h4>Message: {element.content}</h4>
+                  <h4>From: {element.username}</h4>
+                  <h4>Name of routine: {element.name}</h4>
+                  <h4>Description: {element.description}</h4>
                 </div>
               </div>
             </div>
           </div>
         );
-      })
-    ) : (
-      <h2>No messages to display</h2>
-    );
-    return(
-        <div>
-        <h3 className="welcome">Welcome {myInfo.username}</h3>
-        {myInfo}
+        }
+    )};
+        </div> */}
+       
         <Link to="/CreateRoutines">
         <button id="allButton" type="button" className="btn btn-dark">
           Create New Post
         </button>
       </Link>
-            <Link to="/Logout">
+            <Link to="/">
         <button
           id="allButton"
           type="button"
