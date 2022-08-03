@@ -110,24 +110,26 @@ export async function createUser (username, password){
     }
   }
 
-export async function userRoutines(username){
-  try{
-    const response = await fetch(`${BASE_URL}/users/${username}/routines`,{
-      headers:{
-        'Content-Type' : 'application/json',
-        // 'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify({
-        username: username
-      })
-  }
-    )
-    const result = response.json()
-    return result
-  }catch(error){
-    console.log(error);
-  }
-}  
+  export async function userRoutines(token,username){
+    try{
+      console.log(token)
+      const response = await fetch(`${BASE_URL}/users/${username}/routines`,{
+        headers:{
+          'Content-Type' : 'application/json',
+          'Authorization': `Bearer ${token}`
+        }
+        // body: JSON.stringify({
+        //   username: username
+        // })
+    }
+      )
+      const result = response.json()
+      console.log(result)
+      return result
+    }catch(error){
+      console.log(error);
+    }
+  } 
 
 export async function createRoutine(token, name, goal){
   const response = await fetch(`${BASE_URL}/routines`,{

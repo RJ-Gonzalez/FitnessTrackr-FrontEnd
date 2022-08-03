@@ -14,6 +14,7 @@ export default function Register(){
       event.preventDefault();
       const result = await createUser(newUsername, password);
       localStorage.setItem("token",result.data.token);
+      localStorage.setItem("username",newUsername);
       navigate("/Login");
     }
     return (

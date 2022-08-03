@@ -21,10 +21,9 @@ export default function LoggedIn() {
 
     const token = await loginUser(username, password);
     localStorage.setItem("token",token);
-
+    localStorage.setItem("username",username);
     navigate("/MyRoutines");
   };
-
   return (
     <section className=" text-center text-lg-start">
       <div className="card mb-3">
