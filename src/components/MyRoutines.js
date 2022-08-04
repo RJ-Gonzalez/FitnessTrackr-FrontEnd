@@ -48,6 +48,11 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
+                  <Link to="/CreateRoutineActivty">
+        <button id="allButton" type="button" className="btn btn-dark">
+          Create New Routine-Activity!
+        </button>
+      </Link>
                 </div>
               </div>
             </div>
