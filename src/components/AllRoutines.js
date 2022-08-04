@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { NavBar } from ".";
+import { NavBar, CreateRoutineActivty } from ".";
 import { getAllPublicRoutines } from "../api";
 import { useNavigate } from "react-router-dom";
 import DeleteRoutine from "./DeleteRoutine";
+
+
 
 import "./style.css";
 
@@ -22,7 +24,7 @@ export default function AllRoutines({ routines, setRoutines }) {
         {routines.map((routine, index) => {
           return (
             <div id="routinesContainer">
-              <div key={index}>
+              <div key={`AllRoutines${index}`}>
                 <h3>Posted By: {routine.creatorName.toUpperCase()}</h3>
                 <DeleteRoutine routineId = {routine.id}/>
                 <h5>Goal:{routine.goal}</h5>
@@ -30,13 +32,14 @@ export default function AllRoutines({ routines, setRoutines }) {
                
                 {routine.activities.map((activity, indx) => {
                   return (
-                    <div key={indx}>
+                    <div key={`RoutineActivitiesAllRoutines${indx}`}>
                       <h5>Activity{activity.name}</h5>
                       <h5>Duration:{activity.duration}</h5>
+                      <h5>Count:{activity.count}</h5>
                       <h5>Description:{activity.description}</h5>
-
+                      {/* <CreateRoutineActivty routineId = {activity.routineId}/> */}
                     </div>
-                  );
+                  )
                 })}
               </div>
             </div>

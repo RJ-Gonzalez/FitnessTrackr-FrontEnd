@@ -185,7 +185,7 @@ export async function createMyActivity( token, name, description){
 
 export async function createRoutineActivity(routineId, activityId, count, duration){
   try{
-    const response = await fetch(`${BASE_URL}/activities/${routineId}/activities`,{
+    const response = await fetch(`${BASE_URL}/routines/${routineId}/activities`,{
       method: "POST",
       body: JSON.stringify({
         activityId: activityId,
@@ -208,6 +208,24 @@ export async function userActivity(token,activityId){
         'Authorization': `Bearer ${token}`
       }
   }
+    )
+    const result = response.json()
+    console.log(result)
+    return result
+  }catch(error){
+    console.log(error);
+  }
+} 
+
+export async function UpdateRoutines(routineId, name, goal){
+  try{
+    const response = await fetch(`${BASE_URL}/routines/${routineId}`,{
+      method: "PATCH",
+      body: JSON.stringify({
+        name: name,
+        goal: goal
+        })
+      }
     )
     const result = response.json()
     console.log(result)

@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import { createRoutine, connectProfile, userRoutines} from "../api"
 import { Link } from "react-router-dom";
-import { NavBar } from ".";
+import { CreateRoutineActivty, NavBar } from ".";
 
 
 
@@ -39,7 +39,8 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
         <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
         <div>
         {myRoutine.map((element, index) => {
-            console.log(element)
+            const routineId = element.id
+            console.log(routineId, "this is our element.id inside of myRoutines")
         return (
           <div key={`myRoutines${index}`}>
             <div className="card" style={{ width: 700 }}>
@@ -48,11 +49,12 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
-                  <Link to="/CreateRoutineActivty">
-        <button id="allButton" type="button" className="btn btn-dark">
+                  {/* <Link to="/CreateRoutineActivty"> */}
+        {/* <button id="allButton" type="button" className="btn btn-dark"> */}
+          <CreateRoutineActivty routineId = {element.id}/>
           Create New Routine-Activity!
-        </button>
-      </Link>
+        {/* </button> */}
+      {/* </Link> */}
                 </div>
               </div>
             </div>
