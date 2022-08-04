@@ -242,3 +242,28 @@ export async function UpdateRoutines(name, goal, isPublic,routineId,token){
     console.log(error);
   }
 } 
+
+export async function UpdateActivities(duration,count,routineId,token){
+  try{
+    
+    const response = await fetch(`${BASE_URL}/routine_activities/${routineId}`,{
+      
+      method: "PATCH",
+      headers:{
+        'Content-Type' : 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+      count:count,
+      duration:duration
+        })
+      }
+    )
+    console.log(response, "Response from api routineActivities")
+    const result = response.json()
+    console.log(result,"this is Routine Activities from api")
+    return result
+  }catch(error){
+    console.log(error);
+  }
+} 

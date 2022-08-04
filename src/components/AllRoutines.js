@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavBar, CreateRoutineActivty } from ".";
-import { getAllPublicRoutines } from "../api";
+import { getAllPublicRoutines, UpdateActivities } from "../api";
 import { useNavigate } from "react-router-dom";
 import DeleteRoutine from "./DeleteRoutine";
 import UpdateRoutine from "./UpdateRoutine";
+import UpdateActivity from "./UpdateActivity";
 
 
 
@@ -37,7 +38,8 @@ export default function AllRoutines({ routines, setRoutines }) {
                       <h5>Duration:{activity.duration}</h5>
                       <h5>Count:{activity.count}</h5>
                       <h5>Description:{activity.description}</h5>
-                      <CreateRoutineActivty routineId = {activity.routineId}/>
+                      <UpdateActivity routineId = {activity.routineId}/>
+
                     </div>
                   )
                 })}

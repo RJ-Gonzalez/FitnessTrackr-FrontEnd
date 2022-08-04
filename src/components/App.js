@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Route, Link, Routes } from "react-router-dom";
-import {Register, Login, Home, AllRoutines, AllActivities,MyRoutines, NavBar, CreateRoutines,CreateActivity,CreateRoutineActivty} from "./";
+import {Register, Login, Home, AllRoutines, AllActivities,MyRoutines, NavBar, CreateRoutines,CreateActivity,AttachRoutineActivity} from "./";
 
 
 
@@ -23,7 +23,7 @@ const App = () =>{
         <Route exact path="/MyRoutines" element={<MyRoutines myRoutine={myRoutine} setMyRoutine={setMyRoutine} myInfo ={myInfo} setMyInfo ={setMyInfo} />}></Route>
         <Route exact path="/CreateRoutines" element={<CreateRoutines />}></Route>
         <Route exact path="/CreateActivity" element={<CreateActivity />}></Route>
-        <Route exact path="/CreateRoutineActivty" element={<CreateRoutineActivty />}></Route>
+        <Route exact path="/AttachRoutineActivity" element={<AttachRoutineActivity />}></Route>
 
 
         
