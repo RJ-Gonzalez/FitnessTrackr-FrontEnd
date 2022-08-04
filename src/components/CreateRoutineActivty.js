@@ -22,6 +22,7 @@ export default function createNewRoutineActivity({routineId}){
     // const token = localStorage.getItem("token");
     alert("New Routine-Activity Created")
     const response = await createRoutineActivity(routineId, activityId, count, duration);
+    console.log(response)
     console.log(response, "this is response from CreateRoutines HandleSubmit")
     navigate("/MyRoutines")
     return response;

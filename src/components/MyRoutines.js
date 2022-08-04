@@ -12,7 +12,6 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
    const token = localStorage.getItem("token");
     async function getMyInfo() {
       const response = await connectProfile(token);
-      console.log(response, "this is respone from My ROUTINES!!!!")
       setMyInfo(response);
       
     }
@@ -21,11 +20,9 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
 
   useEffect(() => {
    const token = localStorage.getItem("token");
-   console.log(token)
    const username = localStorage.getItem("username");
     async function getMyRoutines() {
       const response = await  userRoutines(token,username);
-      console.log(response, "this is respone from My ROUTINES!!!!")
       setMyRoutine(response);
       
     }
@@ -39,8 +36,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
         <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
         <div>
         {myRoutine.map((element, index) => {
-            const routineId = element.id
-            console.log(routineId, "this is our element.id inside of myRoutines")
+            // const routineId = element.id
         return (
           <div key={`myRoutines${index}`}>
             <div className="card" style={{ width: 700 }}>
@@ -49,12 +45,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
-                  {/* <Link to="/CreateRoutineActivty"> */}
-        {/* <button id="allButton" type="button" className="btn btn-dark"> */}
-          <CreateRoutineActivty routineId = {element.id}/>
-          Create New Routine-Activity!
-        {/* </button> */}
-      {/* </Link> */}
+          {/* <CreateRoutineActivty/> */}
                 </div>
               </div>
             </div>
