@@ -6,7 +6,8 @@ import { useNavigate} from "react-router-dom";
 import { createRoutineActivity, getAllPublicRoutines } from "../api";
 
 
-export default function AttachRoutineActivity({routineId}){
+export default function AttachRoutineActivity({routines}){
+  // console.log(count, "this is count", duration, "this is duration")
   let navigate = useNavigate();
   const [countList,setCountList] = useState([]);
   const [durationList,setDurationList] = useState([]);
@@ -26,10 +27,11 @@ useEffect(()=>{
     console.log("error"))
 },[]);
 
+console.log(count, "this is count!!!")
+console.log(duration, "this is duration!!!")
+
 return (<form id="search" onSubmit={async (event) => {
-  // write code here
   event.preventDefault()
-  // setIsLoading (true)
   try {
     const result = await createRoutineActivity({count,duration,activityId});
     console.log(result);
@@ -47,7 +49,7 @@ return (<form id="search" onSubmit={async (event) => {
         value={count} 
         onChange={(event) => setCount(event.target.value)}>
         <option value="any">Any</option>
-        {/* {countList.map(count => <option key={count.id} value={count.name} >{count.count}</option> )} */}
+        {/* {routines.activity.map(count => <option>{count.count}</option> )} */}
       </select>
     </fieldset>
     <fieldset>
@@ -58,7 +60,7 @@ return (<form id="search" onSubmit={async (event) => {
         value={duration} 
         onChange={(event) => setDuration(event.target.value)}>
         <option value="any">Any</option>
-        {/* {durationList.map(duration => <option key={duration.id} value={duration.name}>{duration.duration}</option>)} */}
+        {/* {routines.activity.map(count => <option>{count.duration}</option>)} */}
       </select>
      </fieldset>
     <button>SEARCH</button>

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import DeleteRoutine from "./DeleteRoutine";
 import UpdateRoutine from "./UpdateRoutine";
 import UpdateActivity from "./UpdateActivity";
+import AttachRoutineActivity from "./AttachRoutineActivity";
+
 
 
 
@@ -39,7 +41,7 @@ export default function AllRoutines({ routines, setRoutines }) {
                       <h5>Count:{activity.count}</h5>
                       <h5>Description:{activity.description}</h5>
                       <UpdateActivity routineId = {activity.routineId}/>
-
+                      {/* <AttachRoutineActivity count = {activity.count} duration ={activity.duration}/> */}
                     </div>
                   )
                 })}

@@ -11,19 +11,19 @@ export default function Home () {
         {/* <nav className="d-flex"> */}
         <div className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="container-fluid">
-        <div  className="text-white"><h1>Fitness Trackr</h1></div>
+        <div  className="text-white"><h1 id = "title">Fitness Trackr</h1></div>
           <h4 className="mb-0">
-          <Link to="/" className="text-white">Home</Link>
+          <Link to="/" className="text">Home</Link>
             <span className="text-white"> | </span>
-            <Link to="/Login" className="text-white">Login</Link>
+            <Link to="/Login" className="text">Login</Link>
             <span className="text-white"> | </span>
-            <Link to="/Register" className="text-white">Register</Link>
+            <Link to="/Register" className="text">Register</Link>
             <span className="text-white"> | </span>
-            <Link to="/AllRoutines" className="text-white">Routines</Link>
+            <Link to="/AllRoutines" className="text">Routines</Link>
             <span className="text-white"> | </span>
-            <Link to="/AllActivities" className="text-white">Activities</Link>
+            <Link to="/AllActivities" className="text">Activities</Link>
             <span className="text-white"> | </span>
-            <Link to="/MyRoutines" className="text-white">My Routines</Link>
+            <Link to="/MyRoutines" className="text">My Routines</Link>
           </h4>
           </div>
       </div>

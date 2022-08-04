@@ -45,7 +45,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
-          <AttachRoutineActivity routineId = {element.id.routineId}/>
+          {/* <AttachRoutineActivity routineId = {element.id.routineId}/> */}
                 </div>
               </div>
             </div>
