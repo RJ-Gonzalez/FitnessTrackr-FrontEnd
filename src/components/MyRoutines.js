@@ -1,7 +1,7 @@
-import React,{useEffect,useState} from 'react';
-import { createRoutine, connectProfile, userRoutines} from "../api"
-import { Link, useNavigate } from "react-router-dom";
-import { AttachRoutineActivity, NavBar, ActivityDropDown } from ".";
+import React,{useEffect} from 'react';
+import {  connectProfile, userRoutines} from "../api"
+import { Link} from "react-router-dom";
+import { NavBar, ActivityDropDown } from ".";
 import UpdateRoutine from "./UpdateRoutine";
 import DeleteRoutine from "./DeleteRoutine";
 
@@ -10,7 +10,6 @@ import DeleteRoutine from "./DeleteRoutine";
 
 
 const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
-   const navigate = useNavigate()
   const authToken = localStorage.getItem("token") ? true : false;
 
 
@@ -42,7 +41,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
             {authToken === true ? (
         <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
         ):  <Link to ="./AllRoutines">Back to All Routines</Link>}
-        <div>
+        <div id="my">
         {myRoutine.map((element, index) => {
           console.log(myRoutine)
         return (
@@ -53,10 +52,9 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Goal: {element.goal}</h4>
                 <DeleteRoutine routineId = {element.id}/>
                 <UpdateRoutine routineId = {element.id}/>
-
             {element.activities.map((activity, index)=>{
               let actvityid = activity.id
-              console.log(actvityid, 'THIS IS ACTIVITY ID ')
+              
               return(
                 <div key={`myroutines${index}`}>
                  <h2>Active Activity</h2>
@@ -67,11 +65,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                 </div>
               )
             })}
-          {/* <UpdateActivity routineId = {element.id}/> */}
-          {/* <AttachRoutineActivity routineId = {element.id} /> */}
-
           <ActivityDropDown routineId = {element.id}/>
-          
                 </div>
         );
         }
@@ -88,7 +82,6 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
           Create New Activity!
         </button>
       </Link>
-
 
             <Link to="/">
         <button

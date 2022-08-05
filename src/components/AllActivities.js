@@ -12,9 +12,10 @@ const AllActivities = ({activities, setActivities}) => {
       const activityMapping = activities.map((activity,id) => {
         return (
           <div key={id} id="routinesContainer">
-             <h2>ID:{activity.id}</h2>
-            <h3>Name of Activity:{activity.name}</h3>
-            <h5>Description:{activity.description}</h5>
+            <h3 className="name">Name of Activity:</h3>
+            <p>{activity.name}</p>
+            <h5 className="description">Description:</h5>
+            <p>{activity.description}</p>
           </div>
         );
       });

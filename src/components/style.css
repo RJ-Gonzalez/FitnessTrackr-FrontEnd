@@ -18,12 +18,13 @@ body{
 
   #routinesContainer{
     height: 300px;
-    width: 700px;
+    width: 500px;
     border: 5px solid #90e0ef;
     border-radius: 30px;
     overflow: scroll;
     margin: 10px;
-    background-color: #eac1a45d;
+    background-color: #82d8dab7;
+    padding: 10px;
   }
 
   #container{
@@ -32,7 +33,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
   }
 
   .picture{
@@ -80,9 +80,26 @@ body{
   select{
     width: 300px;
   }
-  .AllRoutines{
+  #AllRoutines{
     font-size: 45px;
     color:#f7e1d7;
     text-align: center;
   }
 
+  .name{
+    font-size: 40px;
+    text-decoration: underline;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+  }
+p{
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+}
+.description{
+  font-size: 30px;
+    text-decoration: underline;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
