@@ -28,7 +28,7 @@ export default function AllRoutines({ routines, setRoutines }) {
             <div id="routinesContainer">
               <div key={`AllRoutines${index}`}>
                 <h3>Posted By: {routine.creatorName.toUpperCase()}</h3>
-                <DeleteRoutine routineId = {routine.id}/>
+                {/* <DeleteRoutine routineId = {routine.id}/> */}
                 <UpdateRoutine routineId = {routine.id}/>
                 <h5>Goal:{routine.goal}</h5>
                 <h5>Routine: {routine.name}</h5>

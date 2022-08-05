@@ -3,6 +3,8 @@ import { createRoutine, connectProfile, userRoutines} from "../api"
 import { Link } from "react-router-dom";
 import { AttachRoutineActivity, NavBar, ActivityDropDown } from ".";
 import UpdateActivity from "./UpdateActivity";
+import DeleteRoutine from "./DeleteRoutine";
+
 
 
 
@@ -47,6 +49,8 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
+                <DeleteRoutine routineId = {element.id}/>
+
             {element.activities.map((activity, index)=>{
               let actvityid = activity.id
               console.log(actvityid, 'THIS IS ACTIVITY ID ')
