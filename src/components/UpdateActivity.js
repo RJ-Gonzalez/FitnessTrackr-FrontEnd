@@ -6,6 +6,7 @@ import { UpdateActivities} from "../api"
 
 export default function UpdateActivity({routineActivityId}) {
     const [count, setCount] = useState("");
+    console.log(count)
     const [duration, setDuration] = useState("");
     
 
@@ -13,7 +14,7 @@ export default function UpdateActivity({routineActivityId}) {
     const handleSubmit = async (event) => {
     event.preventDefault()
     const token = localStorage.getItem("token");
-    const newActivity = await UpdateActivities(duration,count,routineId,token);
+    const newActivity = await UpdateActivities(duration,count,routineActivityId,token);
         setCount('')
         setDuration('')
         return newActivity;

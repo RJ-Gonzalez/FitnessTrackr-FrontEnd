@@ -34,13 +34,16 @@ export default function AllRoutines({ routines, setRoutines }) {
                 <h5>Routine: {routine.name}</h5>
                
                 {routine.activities.map((activity, indx) => {
+                      const routineActivityId = activity.routineActivityId
+                      console.log(routineActivityId, "this is routineActivityId!!!!!")
+
                   return (
                     <div key={`RoutineActivitiesAllRoutines${indx}`}>
                       <h5>Activity{activity.name}</h5>
                       <h5>Duration:{activity.duration}</h5>
                       <h5>Count:{activity.count}</h5>
                       <h5>Description:{activity.description}</h5>
-                      <UpdateActivity routineActivityId = {activity.routineId}/>
+                      <UpdateActivity routineActivityId = {activity.routineActivityId}/>
                       {/* <AttachRoutineActivity count = {activity.count} duration ={activity.duration}/> */}
                     </div>
                   )
