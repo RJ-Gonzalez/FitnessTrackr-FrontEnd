@@ -80,7 +80,7 @@ export default function LoggedIn() {
                   Login
                 </button>
 
-                <Link to="/Posts">
+                <Link to="/AllRoutines">
                   <button id="viewAsGuest" className="btn btn-dark">
                     View As Guest
                   </button>

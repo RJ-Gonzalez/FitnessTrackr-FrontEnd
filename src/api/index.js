@@ -183,11 +183,14 @@ export async function createMyActivity( token, name, description){
 ).catch(console.error)
 }
 
-export async function createRoutineActivity(routineId, activityId, count, duration){
+export async function createRoutineActivity(token, routineId, activityId, count, duration){
   try{
-    console.log(routineId, activityId, count, duration, "THIS IS CREATEROUTINEACTIVITY FROM API")
     const response = await fetch(`${BASE_URL}/routines/${routineId}/activities`,{
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`
+      },
       body: JSON.stringify({
         activityId: activityId,
         count: count,

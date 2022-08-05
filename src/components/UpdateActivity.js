@@ -6,7 +6,6 @@ import { UpdateActivities} from "../api"
 
 export default function UpdateActivity({routineActivityId}) {
     const [count, setCount] = useState("");
-    console.log(count)
     const [duration, setDuration] = useState("");
     
 

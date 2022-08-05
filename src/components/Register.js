@@ -95,7 +95,7 @@ export default function Register(){
                           Create Account
                         </button>
                         <div className="form-outline mb-4">
-                          <Link to="/Posts">
+                          <Link to="/AllRoutines">
                             <button className="btn btn-secondary">
                               View As Guest
                             </button>

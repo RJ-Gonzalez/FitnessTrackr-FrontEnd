@@ -3,23 +3,22 @@ import { getAllPublicRoutines, createRoutineActivity,getAllActivities } from "..
 
 const AllActivities = ({ routineId }) => {
   const [activities, setActivities] = useState([]);
-  const [addActivity, setAddActivity] = useState({});
-  const [count, setCount] = useState("");
-  const [duration, setDuration] = useState("");
-  const [activityId, setActivityId] = useState("")
+  const [count, setCount] = useState('');
+  const [duration, setDuration] = useState('');
+  const [activityId, setActivityId] = useState({})
   const [allActivities, setAllActivities] = useState([])
-  const [id, setId] = useState("")
+  const [id, setId] = useState()
 
 
 
   useEffect(() => {
-    getAllActivities().then((result) => {
+    getAllPublicRoutines().then((result) => {
       setActivities(result);
     });
   }, []);
 
   const getActivities = async () =>{
-    const allActivities = await getAllActivities()
+    const allActivities = await getAllPublicRoutines()
     return setAllActivities(allActivities)
   }
   useEffect(() => {
@@ -29,29 +28,30 @@ const AllActivities = ({ routineId }) => {
 
   const handler = async (event) => {
     event.preventDefault();
-    setActivityId(event.target.value);
+    setId(event.target.value);
     const activities = [...allActivities];
     const activity = activities.filter(
       (element) => element.name === event.target.value
     );
-    const activityId = activity[0].id;
+    const activityId = activity[0].id
     console.log(activityId, "THIS IS ACTIVITY ID")
-    setId(activityId);
+    setActivityId(activityId);
     return setId
   };
 
-
   async function handleSubmit(event) {
     event.preventDefault();
+    const token = localStorage.getItem("token");
     const result = await createRoutineActivity(
+      token,
       routineId,
-      setId,
+      activityId,
       count,
       duration
     );
     setCount('')
-    setDuration('')
-    console.log(result, "this is RESULT FROM DRPDOWN")
+    setDuration('') //cannot use letters only numbers.
+console.log(routineId, activityId, count, duration)
     return result;
   }
 
@@ -59,13 +59,25 @@ const AllActivities = ({ routineId }) => {
   return (
     <div>
       <div>Add Activities</div>
+      
       <form onSubmit={handleSubmit}>
+      <input type ="text"
+        placeholder="count"
+        value={count}
+        onChange={(event) => setCount(event.target.value)}/>
+        <input type ="text"
+        placeholder="duration"
+        value={duration}
+        onChange={(event) => setDuration(event.target.value)}/>
         <select onChange={handler}>
+          
           <option>Choose Your Activity</option>
+          
           {activities.map((activity, id) => {
-            return <option key={activity.id}>{activity.name}</option>;
+            return <option key={`ActivityDropDown${id}`}>{activity.name}</option>;
           })}
         </select>
+        
         <button>Add Activity</button>
       </form>
     </div>

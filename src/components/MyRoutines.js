@@ -2,6 +2,8 @@ import React,{useEffect,useState} from 'react';
 import { createRoutine, connectProfile, userRoutines} from "../api"
 import { Link } from "react-router-dom";
 import { AttachRoutineActivity, NavBar, ActivityDropDown } from ".";
+import UpdateActivity from "./UpdateActivity";
+
 
 
 
@@ -50,14 +52,17 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
               console.log(actvityid, 'THIS IS ACTIVITY ID ')
               return(
                 <div key={`myroutines${index}`}>
-                  <h1> id:{activity.id}</h1>
+                  <h1>id:{activity.name}</h1>
                   <h5>Duration: {activity.duration}</h5>
                   <h5>Count:{activity.count}</h5>
                 </div>
               )
             })}
-          <AttachRoutineActivity routineId = {element.id} />
+          {/* <UpdateActivity routineId = {element.id}/> */}
+          {/* <AttachRoutineActivity routineId = {element.id} /> */}
+
           <ActivityDropDown routineId = {element.id}/>
+          
                 </div>
               </div>
             </div>
