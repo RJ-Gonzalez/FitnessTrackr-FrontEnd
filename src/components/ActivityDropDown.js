@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllPublicRoutines, createRoutineActivity,getAllActivities } from "../api";
+import { getAllPublicRoutines, createRoutineActivity} from "../api";
 
 const AllActivities = ({ routineId }) => {
   const [activities, setActivities] = useState([]);
@@ -77,7 +77,6 @@ console.log(routineId, activityId, count, duration)
             return <option key={`ActivityDropDown${id}`}>{activity.name}</option>;
           })}
         </select>
-        
         <button>Add Activity</button>
       </form>
     </div>

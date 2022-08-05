@@ -1,77 +1,85 @@
-import React,{useEffect} from 'react';
-import {  connectProfile, userRoutines} from "../api"
-import { Link} from "react-router-dom";
+import React, { useEffect } from "react";
+import { connectProfile, userRoutines } from "../api";
+import { Link } from "react-router-dom";
 import { NavBar, ActivityDropDown } from ".";
 import UpdateRoutine from "./UpdateRoutine";
+import UpdateActivity from "./UpdateActivity";
 import DeleteRoutine from "./DeleteRoutine";
+import DeleteActivity from "./DeleteActivity";
 
-
-
-
-
-const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
+const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine }) => {
   const authToken = localStorage.getItem("token") ? true : false;
 
-
   useEffect(() => {
-   const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     async function getMyInfo() {
       const response = await connectProfile(token);
       setMyInfo(response);
-      
     }
     getMyInfo();
   }, []);
 
   useEffect(() => {
-   const token = localStorage.getItem("token");
-   const username = localStorage.getItem("username");
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
     async function getMyRoutines() {
-      const response = await  userRoutines(token,username);
+      const response = await userRoutines(token, username);
       setMyRoutine(response);
-      
     }
     getMyRoutines();
   }, []);
-    return(
-        <div id = "MyRoutineContainer">
-            <div>
-                 <NavBar/>
-            </div>
-            {authToken === true ? (
+  return (
+    <div id="MyRoutineContainer">
+      <div>
+        <NavBar />
+      </div>
+      {authToken === true ? (
         <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
-        ):  <Link to ="./AllRoutines">Back to All Routines</Link>}
-        <div id="my">
+      ) : (
+        <Link to="./AllRoutines">Back to All Routines</Link>
+      )}
+      <div id="my">
         {myRoutine.map((element, index) => {
-          console.log(myRoutine)
-        return (
-          <div key={`myRoutines${index}`}>
-                 <h2>Active Routine</h2>
-                  <h4>Creator: {element.creatorName}</h4>
-                  <h4>Routine: {element.name}</h4>
-                  <h4>Goal: {element.goal}</h4>
-                <DeleteRoutine routineId = {element.id}/>
-                <UpdateRoutine routineId = {element.id}/>
-            {element.activities.map((activity, index)=>{
-              let actvityid = activity.id
-              
-              return(
-                <div key={`myroutines${index}`}>
-                 <h2>Active Activity</h2>
-                  <h4>Activity Name:{activity.name}</h4>
-                  <h5>Description: {activity.description}</h5>
-                  <h5>Duration: {activity.duration}</h5>
-                  <h5>Count:{activity.count}</h5>
-                </div>
-              )
-            })}
-          <ActivityDropDown routineId = {element.id}/>
-                </div>
-        );
-        }
-    )};
-        </div>
-        <Link to="/CreateRoutines">
+          console.log(myRoutine);
+          return (
+            <div key={`myRoutines${index}`} id="routinesContainers">
+              <h2 id="MyTitle">Active Routine</h2>
+              <h4 id="subTitles">Creator: {element.creatorName}</h4>
+              <h4 id="subTitles">Routine: {element.name}</h4>
+              <h4 id="subTitles">Goal: {element.goal}</h4>
+              <UpdateRoutine routineId={element.id} />
+              <DeleteRoutine routineId={element.id} />
+              {element.activities.map((activity, index) => {
+                let actvityid = activity.id;
+                console.log(activity);
+                return (
+                  <div key={`myroutines${index}`}>
+                    <h2 id="MyTitle">Active Activity</h2>
+                    <h4 id="subTitles">Activity Name:{activity.name}</h4>
+                    <h5 id="subTitles">Description: {activity.description}</h5>
+
+                    <h5 id="subTitles">Duration: {activity.duration}</h5>
+                    <h5 id="subTitles">Count:{activity.count}</h5>
+                    <h5 id="subTitles">
+                      Routine Activity ID: {activity.routineActivityId}
+                    </h5>
+                    <UpdateActivity
+                      routineActivityId={activity.routineActivityId}
+                    />
+
+                    <DeleteActivity
+                      routineActivityId={activity.routineActivityId}
+                    />
+                  </div>
+                );
+              })}
+              <ActivityDropDown routineId={element.id} />
+            </div>
+          );
+        })}
+        ;
+      </div>
+      <Link to="/CreateRoutines">
         <button id="allButton" type="button" className="btn btn-dark">
           Create New Routine!
         </button>
@@ -83,7 +91,7 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
         </button>
       </Link>
 
-            <Link to="/">
+      <Link to="/">
         <button
           id="allButton"
           type="button"
@@ -95,8 +103,8 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
           Log Out
         </button>
       </Link>
-        </div>
-    )
-}
+    </div>
+  );
+};
 
 export default MyRoutines;

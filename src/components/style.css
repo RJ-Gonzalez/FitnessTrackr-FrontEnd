@@ -1,6 +1,7 @@
 
 body{
-  font-family: 'Lobster', cursive;
+  font-family: 'Bebas Neue', cursive;
+
   background-image: url("https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80");
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,6 +27,16 @@ body{
     background-color: #82d8dab7;
     padding: 10px;
   }
+ #routinesContainers{
+  height: 600px;
+  width: 700px;
+  border: 5px solid #90e0ef;
+  border-radius: 30px;
+  overflow: scroll;
+  margin: 10px;
+  background-color: #82d8dab7;
+  padding: 10px;
+ }
 
   #container{
     overflow: scroll;
@@ -47,7 +58,7 @@ body{
   .text{
     color: #90e0ef;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   button{
@@ -65,7 +76,10 @@ body{
   }
 
   .welcome{
+    font-size: 60px;
     color: #f7e1d7;
+    font-family: 'Bebas Neue', cursive;
+
   }
 
 #registerImg{
@@ -102,4 +116,14 @@ p{
     text-decoration: underline;
     text-align: center;
     font-family: 'Bebas Neue', cursive;
+}
+
+#MyTitle{
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Bebas Neue', cursive;
+}
+#subTitles{
+  font-family: 'Bebas Neue', cursive;
+
 }

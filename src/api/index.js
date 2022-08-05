@@ -158,10 +158,24 @@ export async function deleteRoutine(token, routineId){
       const result = await response.json();
       return result;
   }catch (error){
-      console.error("Isssue deleting Posts", error)
+      console.error("Isssue deleting Routine", error)
   }
 }
-
+export async function deleteActivity(token, routineActivityId){
+  try{
+      const response = await fetch(`${BASE_URL}/routine_activities/${routineActivityId}`, {
+          method: "DELETE",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`
+          }
+      })
+      const result = await response.json();
+      return result;
+  }catch (error){
+      console.error("Isssue deleting Activity", error)
+  }
+}
 export async function createMyActivity( token, name, description){
   const response = await fetch(`${BASE_URL}/activities`,{
     method: "POST",

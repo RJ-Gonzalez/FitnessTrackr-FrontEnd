@@ -1,6 +1,8 @@
 import React,{useEffect} from "react";
 import { getAllActivities} from "../api";
 import { NavBar } from ".";
+import { Link} from "react-router-dom";
+
 
 const AllActivities = ({activities, setActivities}) => {
 
@@ -21,8 +23,12 @@ const AllActivities = ({activities, setActivities}) => {
       });
     return(
 <div>
-  
 <NavBar/>
+<Link to="/CreateActivity">
+        <button id="allButton" type="button" className="btn btn-dark">
+          Create New Activity!
+        </button>
+      </Link>
 <div id="container">
     {activityMapping}
    </div>
