@@ -1,8 +1,8 @@
 import React,{useEffect,useState} from 'react';
 import { createRoutine, connectProfile, userRoutines} from "../api"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AttachRoutineActivity, NavBar, ActivityDropDown } from ".";
-import UpdateActivity from "./UpdateActivity";
+import UpdateRoutine from "./UpdateRoutine";
 import DeleteRoutine from "./DeleteRoutine";
 
 
@@ -10,7 +10,9 @@ import DeleteRoutine from "./DeleteRoutine";
 
 
 const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
-   
+   const navigate = useNavigate()
+  const authToken = localStorage.getItem("token") ? true : false;
+
 
   useEffect(() => {
    const token = localStorage.getItem("token");
@@ -33,30 +35,33 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
     getMyRoutines();
   }, []);
     return(
-        <div>
+        <div id = "MyRoutineContainer">
             <div>
                  <NavBar/>
             </div>
+            {authToken === true ? (
         <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
+        ):  <Link to ="./AllRoutines">Back to All Routines</Link>}
         <div>
         {myRoutine.map((element, index) => {
           console.log(myRoutine)
         return (
           <div key={`myRoutines${index}`}>
-            <div className="card" style={{ width: 700 }}>
-              <div className="card-body">
-                <div id="inboxMessage">
+                 <h2>Active Routine</h2>
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
                 <DeleteRoutine routineId = {element.id}/>
+                <UpdateRoutine routineId = {element.id}/>
 
             {element.activities.map((activity, index)=>{
               let actvityid = activity.id
               console.log(actvityid, 'THIS IS ACTIVITY ID ')
               return(
                 <div key={`myroutines${index}`}>
-                  <h1>id:{activity.name}</h1>
+                 <h2>Active Activity</h2>
+                  <h4>Activity Name:{activity.name}</h4>
+                  <h5>Description: {activity.description}</h5>
                   <h5>Duration: {activity.duration}</h5>
                   <h5>Count:{activity.count}</h5>
                 </div>
@@ -68,9 +73,6 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
           <ActivityDropDown routineId = {element.id}/>
           
                 </div>
-              </div>
-            </div>
-          </div>
         );
         }
     )};
