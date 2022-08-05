@@ -10,9 +10,9 @@ const AllActivities = ({activities, setActivities}) => {
         });
       }, []);
 
-    const activityMapping = activities.map((activity,id) => {
+     const activityMapping = activities.map((activity,id) => {
         return (
-          <div key={id}>
+          <div key={id} id="routinesContainer">
              <h2>ID:{activity.id}</h2>
             <h3>Name of Activity:{activity.name}</h3>
             <h5>Description:{activity.description}</h5>
@@ -21,8 +21,11 @@ const AllActivities = ({activities, setActivities}) => {
       });
     return(
 <div>
+  
 <NavBar/>
-   {activityMapping}
+<div id="container">
+    {activityMapping}
+   </div>
 </div>
     )
 }

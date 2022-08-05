@@ -21,22 +21,18 @@ export default function AllRoutines({ routines, setRoutines }) {
   return (
     <div>
       <NavBar />
-      <h2>Routines and Activities</h2>
+      <h2 className="AllRoutines">Routines and Activities</h2>
       <div id="container">
         {routines.map((routine, index) => {
           return (
             <div id="routinesContainer">
               <div key={`AllRoutines${index}`}>
                 <h3>Posted By: {routine.creatorName.toUpperCase()}</h3>
-                {/* <DeleteRoutine routineId = {routine.id}/> */}
-                <UpdateRoutine routineId = {routine.id}/>
                 <h5>Goal:{routine.goal}</h5>
                 <h5>Routine: {routine.name}</h5>
-               
                 {routine.activities.map((activity, indx) => {
                       const routineActivityId = activity.routineActivityId
                       console.log(routineActivityId, "this is routineActivityId!!!!!")
-
                   return (
                     <div key={`RoutineActivitiesAllRoutines${indx}`}>
                       <h5>Activity{activity.name}</h5>
@@ -44,7 +40,6 @@ export default function AllRoutines({ routines, setRoutines }) {
                       <h5>Count:{activity.count}</h5>
                       <h5>Description:{activity.description}</h5>
                       <UpdateActivity routineActivityId = {activity.routineActivityId}/>
-                      {/* <AttachRoutineActivity count = {activity.count} duration ={activity.duration}/> */}
                     </div>
                   )
                 })}

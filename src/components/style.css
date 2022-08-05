@@ -1,6 +1,10 @@
+
 body{
   font-family: 'Lobster', cursive;
   background-image: url("https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 .img{
     width: 100%;
@@ -13,18 +17,22 @@ body{
   }
 
   #routinesContainer{
-    height: 200px;
+    height: 300px;
     width: 700px;
-    /* align-content: center; */
-    border: 1px solid black;
+    border: 5px solid #90e0ef;
+    border-radius: 30px;
     overflow: scroll;
-    margin: auto;
+    margin: 10px;
+    background-color: #eac1a45d;
   }
 
   #container{
     overflow: scroll;
-    /* border: 5px solid red; */
     height: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
   }
 
   .picture{
@@ -33,6 +41,7 @@ body{
 
   #title{
     font-size: 50px;
+    margin-right: 100px;
   }
 
   .text{
@@ -70,4 +79,9 @@ body{
 
   select{
     width: 300px;
+  }
+  .AllRoutines{
+    font-size: 45px;
+    color:#f7e1d7;
+    text-align: center;
   }
