@@ -4,7 +4,7 @@ import { UpdateActivities} from "../api"
 
 
 
-export default function UpdateActivity({routineId}) {
+export default function UpdateActivity({routineActivityId}) {
     const [count, setCount] = useState("");
     const [duration, setDuration] = useState("");
     

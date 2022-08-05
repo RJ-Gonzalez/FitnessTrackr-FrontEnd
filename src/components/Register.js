@@ -18,6 +18,21 @@ export default function Register(){
       navigate("/Login");
     }
     return (
+      <div>
+        <div className="navbar navbar-expand-lg navbar-light bg-dark">
+        <div className="container-fluid">
+        <div  className="text-white"><h1 id = "title">Fitness Trackr</h1></div>
+          <h4 className="mb-0">
+          <Link to="/" className="text">Home</Link>
+            <span className="text-white"> | </span>
+            <Link to="/Login" className="text">Login</Link>
+            <span className="text-white"> | </span>
+            <Link to="/AllRoutines" className="text">Routines</Link>
+            <span className="text-white"> | </span>
+            <Link to="/AllActivities" className="text">Activities</Link>
+          </h4>
+          </div>
+      </div>
           <section className="text-center text-lg-start">
             <div className="container py-4">
               <div className="row g-0 align-items-center">
@@ -92,13 +107,14 @@ export default function Register(){
                 </div>
                 <div className="col-lg-5 mb-5 mb-lg-0">
                   <img
-                    src="https://static.boredpanda.com/blog/wp-content/uploads/2017/04/Mountain-Lilac-4-s-58e94fe9e501a__880.jpg"
-                    className="w-100 rounded-4 shadow-4"
+                    src="https://images.unsplash.com/photo-1500468756762-a401b6f17b46?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+                    className="w-100 rounded-4 shadow-4" id = "registerImg"
                     alt=""
                   />
                 </div>
               </div>
             </div>
           </section>
+          </div>
       );
     }

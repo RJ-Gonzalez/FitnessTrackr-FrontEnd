@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import { createRoutine, connectProfile, userRoutines} from "../api"
 import { Link } from "react-router-dom";
-import { AttachRoutineActivity, NavBar } from ".";
+import { AttachRoutineActivity, NavBar, ActivityDropDown } from ".";
 
 
 
@@ -45,7 +45,19 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine}) => {
                   <h4>Creator: {element.creatorName}</h4>
                   <h4>Routine: {element.name}</h4>
                   <h4>Goal: {element.goal}</h4>
-          {/* <AttachRoutineActivity routineId = {element.id.routineId}/> */}
+            {element.activities.map((activity, index)=>{
+              let actvityid = activity.id
+              console.log(actvityid, 'THIS IS ACTIVITY ID ')
+              return(
+                <div key={`myroutines${index}`}>
+                  <h1> id:{activity.id}</h1>
+                  <h5>Duration: {activity.duration}</h5>
+                  <h5>Count:{activity.count}</h5>
+                </div>
+              )
+            })}
+          <AttachRoutineActivity routineId = {element.id} />
+          <ActivityDropDown routineId = {element.id}/>
                 </div>
               </div>
             </div>

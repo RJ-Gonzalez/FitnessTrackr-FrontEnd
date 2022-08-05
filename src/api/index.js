@@ -185,7 +185,7 @@ export async function createMyActivity( token, name, description){
 
 export async function createRoutineActivity(routineId, activityId, count, duration){
   try{
-    console.log(routineId, activityId, count, duration)
+    console.log(routineId, activityId, count, duration, "THIS IS CREATEROUTINEACTIVITY FROM API")
     const response = await fetch(`${BASE_URL}/routines/${routineId}/activities`,{
       method: "POST",
       body: JSON.stringify({

@@ -40,7 +40,7 @@ export default function AllRoutines({ routines, setRoutines }) {
                       <h5>Duration:{activity.duration}</h5>
                       <h5>Count:{activity.count}</h5>
                       <h5>Description:{activity.description}</h5>
-                      <UpdateActivity routineId = {activity.routineId}/>
+                      <UpdateActivity routineActivityId = {activity.routineId}/>
                       {/* <AttachRoutineActivity count = {activity.count} duration ={activity.duration}/> */}
                     </div>
                   )

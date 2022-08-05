@@ -25,12 +25,28 @@ export default function LoggedIn() {
     navigate("/MyRoutines");
   };
   return (
+    <div>
+              <div className="navbar navbar-expand-lg navbar-light bg-dark">
+        <div className="container-fluid">
+        <div  className="text-white"><h1 id = "title">Fitness Trackr</h1></div>
+          <h4 className="mb-0">
+          <Link to="/" className="text">Home</Link>
+            <span className="text-white"> | </span>
+            <Link to="/Register" className="text">Register</Link>
+            <span className="text-white"> | </span>
+            <Link to="/AllRoutines" className="text">Routines</Link>
+            <span className="text-white"> | </span>
+            <Link to="/AllActivities" className="text">Activities</Link>
+          </h4>
+          </div>
+      </div>
     <section className=" text-center text-lg-start">
       <div className="card mb-3">
         <div className="row g-0 d-flex align-items-center">
           <div className="col-lg-4 d-none d-lg-flex">
             <img
-              src="https://static.boredpanda.com/blog/wp-content/uploads/2017/04/Mountain-Lilac-4-s-58e94fe9e501a__880.jpg"
+             id = "loginImg"
+              src="https://images.unsplash.com/photo-1620188467120-5042ed1eb5da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80"
               alt="Trendy Pants and Shoes"
               className="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
             />
@@ -75,5 +91,6 @@ export default function LoggedIn() {
         </div>
       </div>
     </section>
+    </div>
   );
 }

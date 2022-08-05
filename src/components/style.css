@@ -58,3 +58,16 @@ body{
   .welcome{
     color: #f7e1d7;
   }
+
+#registerImg{
+    margin-left: 100px;
+    border: 10px solid black;
+  }
+
+  #loginImg{
+    border: 10px solid black;
+  }
+
+  select{
+    width: 300px;
+  }
