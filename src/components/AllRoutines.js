@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { NavBar} from ".";
 import { getAllPublicRoutines } from "../api";
+import Footer from "./Footer";
+
 
 
 
@@ -29,7 +31,6 @@ export default function AllRoutines({ routines, setRoutines }) {
                 <p>{routine.name}</p>
                 {routine.activities.map((activity, indx) => {
                       const routineActivityId = activity.routineActivityId
-                      console.log(routineActivityId, "this is routineActivityId!!!!!")
                   return (
                     <div key={`RoutineActivitiesAllRoutines${indx}`}>
                       <h5 className="description">Activity:</h5>
@@ -48,6 +49,7 @@ export default function AllRoutines({ routines, setRoutines }) {
           );
         })}
       </div>
+      <Footer/>
     </div>
   );
 }

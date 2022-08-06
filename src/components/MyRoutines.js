@@ -6,8 +6,15 @@ import UpdateRoutine from "./UpdateRoutine";
 import UpdateActivity from "./UpdateActivity";
 import DeleteRoutine from "./DeleteRoutine";
 import DeleteActivity from "./DeleteActivity";
+import Footer from "./Footer";
 
-const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine }) => {
+const MyRoutines = ({
+  myInfo,
+  setMyInfo,
+  myRoutine,
+  setMyRoutine,
+  activityId,
+}) => {
   const authToken = localStorage.getItem("token") ? true : false;
 
   useEffect(() => {
@@ -39,8 +46,29 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine }) => {
         <Link to="./AllRoutines">Back to All Routines</Link>
       )}
       <div id="my">
+        <Link to="/CreateRoutines">
+          <button id="allButton" type="button" className="btn btn-dark">
+            Create New Routine!
+          </button>
+        </Link>
+        <Link to="/CreateActivity">
+          <button id="allButton" type="button" className="btn btn-dark">
+            Create New Activity!
+          </button>
+        </Link>
+        <Link to="/">
+          <button
+            id="allButton"
+            type="button"
+            className="btn btn-dark"
+            onClick={() => {
+              localStorage.removeItem("token");
+            }}
+          >
+            Log Out
+          </button>
+        </Link>
         {myRoutine.map((element, index) => {
-          console.log(myRoutine);
           return (
             <div key={`myRoutines${index}`} id="routinesContainers">
               <h2 id="MyTitle">Active Routine</h2>
@@ -51,7 +79,6 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine }) => {
               <DeleteRoutine routineId={element.id} />
               {element.activities.map((activity, index) => {
                 let actvityid = activity.id;
-                console.log(activity);
                 return (
                   <div key={`myroutines${index}`}>
                     <h2 id="MyTitle">Active Activity</h2>
@@ -63,11 +90,11 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine }) => {
                     <h5 id="subTitles">
                       Routine Activity ID: {activity.routineActivityId}
                     </h5>
-                    <UpdateActivity
-                      routineActivityId={activity.routineActivityId}
-                    />
 
                     <DeleteActivity
+                      routineActivityId={activity.routineActivityId}
+                    />
+                    <UpdateActivity
                       routineActivityId={activity.routineActivityId}
                     />
                   </div>
@@ -79,30 +106,8 @@ const MyRoutines = ({ myInfo, setMyInfo, myRoutine, setMyRoutine }) => {
         })}
         ;
       </div>
-      <Link to="/CreateRoutines">
-        <button id="allButton" type="button" className="btn btn-dark">
-          Create New Routine!
-        </button>
-      </Link>
 
-      <Link to="/CreateActivity">
-        <button id="allButton" type="button" className="btn btn-dark">
-          Create New Activity!
-        </button>
-      </Link>
-
-      <Link to="/">
-        <button
-          id="allButton"
-          type="button"
-          className="btn btn-dark"
-          onClick={() => {
-            localStorage.removeItem("token");
-          }}
-        >
-          Log Out
-        </button>
-      </Link>
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,8 @@ import React,{useEffect} from "react";
 import { getAllActivities} from "../api";
 import { NavBar } from ".";
 import { Link} from "react-router-dom";
+import Footer from "./Footer";
+
 
 
 const AllActivities = ({activities, setActivities}) => {
@@ -32,6 +34,7 @@ const AllActivities = ({activities, setActivities}) => {
 <div id="container">
     {activityMapping}
    </div>
+   <Footer/>
 </div>
     )
 }

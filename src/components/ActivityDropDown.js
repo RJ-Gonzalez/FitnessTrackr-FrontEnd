@@ -34,7 +34,6 @@ const AllActivities = ({ routineId }) => {
       (element) => element.name === event.target.value
     );
     const activityId = activity[0].id
-    console.log(activityId, "THIS IS ACTIVITY ID")
     setActivityId(activityId);
     return setId
   };
@@ -51,7 +50,6 @@ const AllActivities = ({ routineId }) => {
     );
     setCount('')
     setDuration('') //cannot use letters only numbers.
-console.log(routineId, activityId, count, duration)
     return result;
   }
 
@@ -84,3 +82,4 @@ console.log(routineId, activityId, count, duration)
 };
 
 export default AllActivities;
+

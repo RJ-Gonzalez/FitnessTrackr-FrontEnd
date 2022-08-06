@@ -38,7 +38,6 @@ export async function createUser (username, password){
     )
     const result = await response.json()
     const token = result.token
-    console.log(token)
     return token
   }catch(error){
     throw error;
@@ -63,10 +62,8 @@ export async function createUser (username, password){
           'Content-Type': 'application/json',
         }
       });
-      console.log(response, "this is response!!!")
       const result = await response.json();
-      console.log(result, "this is result!!")
-      // displayRoutines(result)
+
       return result;
     } catch (error) {
       console.log(error);
@@ -80,10 +77,7 @@ export async function createUser (username, password){
           'Content-Type': 'application/json',
         }
       });
-      console.log(response, "this is response!!!")
       const result = await response.json();
-      console.log(result, "this is result!!")
-      // displayRoutines(result)
       return result;
     } catch (error) {
       console.log(error);
@@ -110,7 +104,6 @@ export async function createUser (username, password){
 
   export async function userRoutines(token,username){
     try{
-      console.log(token)
       const response = await fetch(`${BASE_URL}/users/${username}/routines`,{
         headers:{
           'Content-Type' : 'application/json',
@@ -119,7 +112,6 @@ export async function createUser (username, password){
     }
       )
       const result = response.json()
-      console.log(result)
       return result
     }catch(error){
       console.log(error);
@@ -274,9 +266,7 @@ export async function UpdateActivities(duration,count,routineId,token){
         })
       }
     )
-    console.log(response, "Response from api routineActivities")
     const result = response.json()
-    console.log(result,"this is Routine Activities from api")
     return result
   }catch(error){
     console.log(error);

@@ -5,11 +5,11 @@ import { deleteRoutine} from "../api";
 
 
 
-export default function  DeleteActivity ({routineActivityId}){
+export default function  DeleteActivity ({routineId}){
     const navigate = useNavigate()
     async function deleteMyActivity() {
         const tokens = localStorage.getItem("token");
-        const erase = await deleteRoutine(tokens, routineActivityId);
+        const erase = await deleteRoutine(tokens, routineId);
         navigate("/MyRoutines");
         return erase;
       }
