@@ -36,16 +36,16 @@ const MyRoutines = ({
     getMyRoutines();
   }, []);
   return (
-    <div id="MyRoutineContainer">
+    <div>
       <div>
         <NavBar />
       </div>
       {authToken === true ? (
-        <h1 className="welcome">Welcome To Your Routines: {myInfo.username}</h1>
+        <h1 className="welcome" >Welcome To Your Routines: {myInfo.username}</h1>
       ) : (
         <Link to="./AllRoutines">Back to All Routines</Link>
       )}
-      <div id="my">
+      <div id="MyRoutineContainer">
         <Link to="/CreateRoutines">
           <button id="allButton" type="button" className="btn btn-dark">
             Create New Routine!
@@ -68,6 +68,9 @@ const MyRoutines = ({
             Log Out
           </button>
         </Link>
+        </div>
+
+<div id="myroutines">
         {myRoutine.map((element, index) => {
           return (
             <div key={`myRoutines${index}`} id="routinesContainers">
@@ -102,11 +105,11 @@ const MyRoutines = ({
               })}
               <ActivityDropDown routineId={element.id} />
             </div>
+           
           );
         })}
+         </div>
         ;
-      </div>
-
       <Footer />
     </div>
   );

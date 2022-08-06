@@ -26,11 +26,13 @@ const AllActivities = ({activities, setActivities}) => {
     return(
 <div>
 <NavBar/>
+<div className="btn">
 <Link to="/CreateActivity">
         <button id="allButton" type="button" className="btn btn-dark">
           Create New Activity!
         </button>
       </Link>
+      </div>
 <div id="container">
     {activityMapping}
    </div>
